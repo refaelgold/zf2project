@@ -29,6 +29,7 @@ class RegistrationForm extends Form
             ),
         ));
 
+
         $this->add(array(
             'name' => 'usrEmail',
             'attributes' => array(

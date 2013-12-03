@@ -28,7 +28,6 @@ use DoctrineORMModule\Form\Annotation\AnnotationBuilder as DoctrineAnnotationBui
 use Zend\Form\Element;
 
 
-
 use AuthDoctrine\Form\RegistrationForm;
 use AuthDoctrine\Form\RegistrationFilter;
 use AuthDoctrine\Form\ForgottenPasswordForm;

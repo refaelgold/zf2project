@@ -12,6 +12,7 @@ use Zend\InputFilter\InputFilter;
 
 class RegistrationFilter extends InputFilter
 {
+
     public function __construct($sm)
     {
         // self::__construct(); // parnt::__construct(); - trows and error
@@ -40,6 +41,7 @@ class RegistrationFilter extends InputFilter
                 ),
             ),
         ));
+
 
         $this->add(array(
             'name'       => 'usrEmail',
