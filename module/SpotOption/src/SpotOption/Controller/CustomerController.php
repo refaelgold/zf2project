@@ -129,33 +129,28 @@ class CustomerController extends AbstractActionController
         $form->bind($customer);
 
         $request = $this->getRequest();
-        if ($request->isPost()) {
 
 
+
+
+
+
+        //ajax
+        if ($request->isXmlHttpRequest()) {
             $form->setData($request->getPost());
-
             if ($form->isValid()) {
-
 
                 $em = $this->getEntityManager();
                 $em->persist($customer);
                 $em->flush();
 
 
-//
-//                $viewModel = new ViewModel();
-//                $viewModel->layout('layout/SpotOption');
-//                return $viewModel;
-//
-//
-//
-
-
-                return $this->redirect()->toRoute('SpotOption', array('controller'=>'customer', 'action'=>'index'));
+//                return $this->redirect()->toRoute('SpotOption', array('controller'=>'customer', 'action'=>'index'));
             }
         }
 
        return new ViewModel(array(
+            'id'=>$this->params('id'),
             'customer' => $customer,
             'form' => $form
         ));

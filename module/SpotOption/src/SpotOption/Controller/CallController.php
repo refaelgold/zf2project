@@ -62,7 +62,7 @@ class CallController extends AbstractActionController
 
 
         $callRepository = $em->getRepository('SpotOption\Entity\Calls');
-        $calls = $callRepository->findAll();//here we use the function findAll().
+        $calls = $callRepository->findBy(array('CustomerId' => $param['id']));
 
 
         $customerRepository = $em->getRepository('SpotOption\Entity\Customers');

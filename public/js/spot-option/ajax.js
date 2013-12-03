@@ -21,42 +21,28 @@ $(function() {
 
     $("#customer").submit(function(e) {
 
-        /* Stop form from submitting normally */
-//        e.preventDefault();
-
-        /* Clear result div*/
-        $(".globalWrapper").html('');
-        $(".globalWrapper").load(BASE_URL+'customer/index');
-
-
-
-
         /* Get some values from elements on the page: */
         var values = $(this).serialize();
 
         /* Send the data using post and put the results in a div */
         $.ajax({
             dataType: 'html',
-            url:'/spot-option/customer/index',
+            url:BASE_URL+'customer/edit/'+currentId,
             type: "post",
-//            data:values,
-
-
+            data:values,
             error:function(jqXHR, textStatus, errorThrown){
                 alert("fails");
-                $(".globalWrapper").empty();
-                $(".globalWrapper").load(BASE_URL+'customer/index')
-
             },
-
-
             success:function(data){
-
+                alert("sucsses");
+                $(".globalWrapper").load(BASE_URL+'customer/index');
             }
 
         });
+        return false;
 
     });
+
 
 
 
@@ -99,6 +85,8 @@ $(function() {
             }
 
         });
+
+        return false;
 
     });
 

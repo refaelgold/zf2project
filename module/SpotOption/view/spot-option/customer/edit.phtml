@@ -1,6 +1,7 @@
 <!--START:ajax call-->
 <?php $this->headScript()->captureStart() ?>
 var BASE_URL = '<?php echo $this->url(); ?>';
+var currentId = '<?php echo $customer->getId(); ?>';
 <?php $this->headScript()->captureEnd() ?>
 <!--END:ajax call-->
 
