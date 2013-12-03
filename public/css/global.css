@@ -1,0 +1,43 @@
+.underline {
+  text-decoration: underline !important; }
+
+.purple {
+  color: purple; }
+
+.green {
+  color: green !important; }
+
+.red {
+  color: red !important; }
+
+.marginRight67 {
+  margin-right: 67px; }
+
+.marginRight107 {
+  margin-right: 107px; }
+
+.absolute {
+  position: absolute !important; }
+
+.relative {
+  position: relative !important; }
+
+.marginAll0 {
+  margin: 0px !important; }
+
+.lightGrayBg {
+  background-color: #f3f3f3; }
+
+/**** advanced input styling ****/
+/* placeholder */
+::-webkit-input-placeholder {
+  color: #bebcbc;
+  font-style: italic; }
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #bebcbc;
+  font-style: italic; }
+
+input {
+  outline: none; }

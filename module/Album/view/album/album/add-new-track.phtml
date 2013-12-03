@@ -1,0 +1,19 @@
+<?php
+// module/Album/view/album/album/add.phtml:
+
+$title = 'Add new song';
+$this->headTitle($title);
+$this->escapeHtml($title)
+?>
+    <h1><?php echo $this->translate($title); ?></h1>
+<?php
+$form->setAttribute('action', $this->url('album', array('action' => 'addNewTrack')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('album_id'));
+    echo $this->formHidden($form->get('track_id'));
+    echo $this->formRow($form->get('track_number'));
+    echo $this->formRow($form->get('track_title'));
+    echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

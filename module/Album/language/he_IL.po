@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZendSkeletonApplication\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-16 20:08-1900\n"
+"PO-Revision-Date: 2013-10-14 10:24+0200\n"
+"Last-Translator: refael gold <refaelgold@gmail.com>\n"
+"Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
+"Language: Arabic\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: ../view/layout/layout.phtml:6 ../view/layout/layout.phtml:33
+msgid "English-Layout"
+msgstr "Hebrew-Layout"
+
+msgid "Albums"
+msgstr "אלבומים"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "Artist"
+msgstr "אמן"
+
+msgid "My albums"
+msgstr "האלבומים שלי"
+
+msgid "Add new album"
+msgstr "הוסף אלבום חדש"
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Edit"
+msgstr "ערוך"
+
+msgid "Edit album"
+msgstr "ערוך אלבום"
+
+msgid "Home"
+msgstr "עמוד הבית"
+
+msgid "Track Id"
+msgstr "מספר שיר"
+
+msgid "Track"
+msgstr "שיר"
+
+msgid "No Songs In This Album"
+msgstr "לא נבחרו שירים לאלבום הנוכחי"
+
+msgid "Add new song"
+msgstr "הוסף שיר חדש"
+
+msgid "Add New song"
+msgstr "הוסף שיר חדש"
+
+msgid "Song name"
+msgstr "שם השיר"
+
+msgid "Song number in album"
+msgstr "מספר השיר באלבום"
+
+msgid "Delete album"
+msgstr "מחק אלבום"
+
+msgid "Are you sure that you want to delete"
+msgstr "האם אתה בטוח שאתה רוצה לבצע מחיקה לאלבום"
+
+msgid "by"
+msgstr "מאת"
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"

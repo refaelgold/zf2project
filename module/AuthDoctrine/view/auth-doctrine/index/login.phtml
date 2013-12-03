@@ -1,0 +1,118 @@
+<div id="container_demo" >
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+        <div id="wrapper" class="relative">
+
+        <?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('auth-doctrine/default', array('controller' => 'index', 'action' => 'login')));
+$form->setAttribute('autocomplete', 'on');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+echo <<<title
+<h1>Login</h1>
+title;
+
+?>
+
+
+
+
+
+ <div class="loginMsg absolute">
+            <?php // view helper
+            //the Try catch is for the zend framework Bug
+            try{
+
+                //if you are login and the session is oN
+                if ($user = $this->identity()) {
+                    echo 'Logged in as ' . $this->escapeHtml($user->getUsrName());
+                    ?>
+                    | <a href="<?php echo $this->url('auth-doctrine/default', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a>
+                <?php
+                } else {
+                    echo 'Not logged in';
+                }
+            }
+            catch(Exception $e){
+                $e->getMessage();
+            }
+            ?>
+
+            <span class="msgFromServer">
+        <?php
+        if (strpos($this->messages,"Auth")===false){
+            echo "<span class='red'>".$this->messages."</span>";
+        }
+
+        else{
+            echo "<span class='green'>".$this->messages."</span>";
+        }
+
+        ?>
+    </span>
+</div>
+
+        <p class="relative">
+    <?php
+echo <<<usernameLabel
+      <label for="username" class="uname" data-icon="u" > Your username </label>
+      <i class="fa-user fa  fa-2x""></i>
+usernameLabel;
+            echo $this->formRow($form->get('username'));
+    ?>
+</p>
+
+
+
+<p class="relative">
+<?php
+echo <<<passwordLabel
+            <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+            <i class="fa fa-lock  fa-2x"></i>
+
+passwordLabel;
+            echo $this->formRow($form->get('password'));
+?>
+</p>
+
+
+
+<p>
+<?php
+ echo $this->formRow($form->get('rememberme'));
+            ?>
+      <label for="loginkeeping">Keep me logged in</label>
+</p>
+
+
+<p class="login button">
+    <?php
+       echo $this->formSubmit($form->get('submit'));
+    ?>
+</p>
+        <p class="change_link">
+            <span class="inner absolute">
+            Not a member yet ?
+            <a class="to_register" href="<?php echo $this->url('auth-doctrine/default', array('controller' => 'registration', 'action' => 'index'));?>"><?php echo $this->translate('Register'); ?></a>
+            </span>
+        </p>
+
+
+<?php
+    echo $this->form()->closeTag();
+?>
+
+
+
+
+<!--<p>-->
+<!--    <a href="<?php echo $this->url('auth-doctrine/default', array('controller' => 'registration', 'action' => 'forgotten-password'));?>"><?php echo $this->translate('Forgotten Password'); ?></a>-->
+<!--</p>-->
+
+
+        </div><!--wrapper-->
+</div><!--end container-->
+

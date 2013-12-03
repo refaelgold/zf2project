@@ -1,0 +1,103 @@
+<div id="container_demo" >
+    <div id="wrapper">
+
+
+        <div id="register" class="animate form">
+
+<h1>Registration</h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('auth-doctrine/default', array('controller' => 'registration', 'action' => 'index')));
+$form->prepare();
+echo $this->form()->openTag($form);
+
+?>
+
+
+<p class="relative">
+    <?php
+echo <<<label
+            <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                  <i class="fa-user fa  fa-2x""></i>
+
+label;
+
+
+    echo $this->formRow($form->get('usrName'));
+    ?>
+</p>
+
+
+<p class="relative">
+    <?php
+echo <<<label
+            <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+            <i class="fa-envelope fa  fa-2x""></i>
+
+label;
+    echo $this->formRow($form->get('usrEmail'));
+    ?>
+</p>
+
+<p class="relative">
+    <?php
+echo <<<label
+
+            <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+            <i class="fa-lock fa  fa-2x""></i>
+
+label;
+    echo $this->formRow($form->get('usrPassword'));
+    ?>
+</p>
+
+
+
+<p class="relative">
+    <?php
+echo <<<label
+            <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+            <i class="fa-lock fa  fa-2x""></i>
+
+label;
+    echo $this->formRow($form->get('usrPasswordConfirm'));
+    ?>
+</p>
+
+
+<p>
+
+
+
+<?php
+
+echo <<<label
+
+<label for="cahptcha" class="cahptcha" data-icon="p">Are you Human?</label>
+label;
+        echo $this->formRow($form->get('captcha'));
+        ?>
+</p>
+
+
+            <p>
+                <?php
+                echo <<<label
+label;
+                echo $this->formSubmit($form->get('submit'));
+                ?>
+            </p>
+
+
+<?php
+echo $this->form()->closeTag();
+?>
+
+      </div>
+    </div>
+</div>
+
+
+
+
+

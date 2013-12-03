@@ -1,0 +1,59 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'My albums';
+$this->headTitle($title);
+
+
+?>
+<h1><?php echo $this->translate($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('album', array('action'=>'add'));?>"><?php echo $this->translate('Add new album');?></a>
+</p>
+
+<h1><?php $this->translate('test') ?></h1>
+<table class="table">
+    <tr class="table-main-title">
+        <td>
+            <a href="<?php echo $this->url('album', array('action'=>'trackPerAlbum', 'id' => $album->id));?>" >
+            <?php echo $this->translate('Title')?>
+            </a>
+        </td>
+        <td>
+            <a href="<?php echo $this->url('album', array('action'=>'trackPerAlbum', 'id' => $album->id));?>" >
+            <?php echo $this->translate('Artist')?>
+            </a>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <?php foreach ($albums as $album) : ?>
+        <tr>
+
+            <td>
+                <a href="<?php echo $this->url('album', array('action'=>'trackPerAlbum', 'id' => $album->id));?>" >
+                    <?php echo $this->escapeHtml($album->title);?>
+                </a>
+
+            </td>
+            <td>
+                <a href="<?php echo $this->url('album', array('action'=>'trackPerAlbum', 'id' => $album->id));?>" >
+                    <?php echo $this->escapeHtml($album->artist);?>
+                </a>
+            </td>
+
+            <td>
+                <a href="<?php echo $this->url('album',
+                    array('action'=>'edit', 'id' => $album->id));?>"><?php echo $this->translate('Edit')?></a>
+                <span>|</span>
+                <a href="<?php echo $this->url('album', array('action'=>'delete', 'id' => $album->id));?>"><?php echo $this->translate('Delete')?></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
+
+
+
+

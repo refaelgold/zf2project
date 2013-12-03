@@ -1,0 +1,46 @@
+<?php echo $this->message; ?>
+<hr />
+
+
+
+
+<!---->
+<?php
+//        echo "<pre style=\"border: 1px solid #000;direction:ltr; height:400px; overflow: auto; margin: 0.5em;\">";
+//                var_dump($specificCustomer);
+//                echo "</pre>\n";die;
+//?>
+
+<h2>
+    <span>Hello , </span>
+    <span>
+
+
+        <?php
+        foreach($specificCustomer as $Customer)
+            echo $Customer->getFirstName();
+        ?>
+
+
+    </span>
+    <br/>
+    <span>this list represents all your calls : </span>
+</h2>
+<table class="bordered">
+    <tr>
+        <th>Subject</th>
+        <th>Content</th>
+        <th>Options</th>
+    </tr>
+
+    <?php foreach ($calls as $call) { ?>
+    <tr>
+        <td><?php echo $this->escapeHtml($call->getSubject());?></td>
+        <td><?php echo $this->escapeHtml($call->getContent());?></td>
+        <td>
+            <a href="<?php echo $this->url('SpotOption', array('controller' => 'call','action' => 'edit' ,  'id' => $call->getId())); ?>">Edit</a>
+            <span> | </span>
+            <a href="<?php echo $this->url('SpotOption', array('controller' => 'call','action' => 'delete', 'id' => $call->getId())); ?>" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+        <?php } ?>
+</table>

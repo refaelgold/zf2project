@@ -1,0 +1,24 @@
+<div class="rssContainer">
+    <h2>Rss feed from CNN Technology Channel</h2>
+    <ul>
+
+        <div >
+            <?php
+            foreach ($channel['items'] as $channelItem){
+                echo "<li class='containerRssOne'>";
+                echo "<h3>";
+                echo $channelItem['title'];
+                echo "</h4>";
+
+
+                echo "<p>";
+                echo $channelItem['description'];
+                echo "</p>";
+
+
+                echo "</li>";
+            }
+            ?>
+        </div>
+    </ul>
+</div>

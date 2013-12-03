@@ -1,0 +1,66 @@
+<div id="formWrapper" >
+        <div id="wrapper" class="relative">
+
+        <?php
+        $form = $this->form;
+        $form->setAttribute('action', $this->url('SpotOption', array('controller' => 'call', 'action' => 'new')));
+        $form->setAttribute('autocomplete', 'on');
+        $form->prepare();
+
+        echo $this->form()->openTag($form);
+
+        echo <<<title
+        <h1>New Call</h1>
+title;
+        ?>
+
+
+
+        <?php
+              echo $this->formRow($form->get('CustomerId'));
+        ?>
+
+
+
+
+        <p class="relative">
+            <?php
+            echo <<<SubjectLabel
+      <label for="Subject" class="uname" data-icon="u" > Subject : </label>
+      <i class="fa-pencil fa  fa-2x""></i>
+SubjectLabel;
+            echo $this->formRow($form->get('Subject'));
+            ?>
+        </p>
+
+
+
+
+        <p class="relative">
+            <?php
+            echo <<<ContentLabel
+      <label for="Content" class="uname" data-icon="u" >Content : </label>
+      <i class="fa-comment fa  fa-2x""></i>
+ContentLabel;
+            echo $this->formRow($form->get('Content'));
+            ?>
+        </p>
+
+
+
+
+        <p class="login button">
+            <?php
+            echo $this->formSubmit($form->get('submit'));
+            ?>
+        </p>
+
+        <?php
+        echo $this->form()->closeTag();
+        ?>
+
+
+
+    </div><!--wrapper-->
+</div><!--end container-->
+

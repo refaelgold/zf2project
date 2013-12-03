@@ -1,0 +1,43 @@
+<!--START:ajax call-->
+<?php $this->headScript()->captureStart() ?>
+var BASE_URL = '<?php echo $this->url(); ?>';
+<?php $this->headScript()->captureEnd() ?>
+<!--END:ajax call-->
+
+
+<div class="globalWrapper">
+    <?php echo $this->message; ?>
+    <hr />
+
+
+    <a id="newCustomerBtn" href="<?php echo $this->url('SpotOption', array('controller' => 'customer','action' => 'new')); ?>">New Customer</a>
+
+    <table class="bordered">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Option</th>
+            <th>CallOption</th>
+
+
+        </tr>
+        <?php foreach ($costumers as $costumer) { ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($costumer->getFirstName());?></td>
+            <td><?php echo $this->escapeHtml($costumer->getLastName());?></td>
+            <td><?php echo $this->escapeHtml($costumer->getPhone());?></td>
+            <td>
+                <a href="<?php echo $this->url('SpotOption', array('controller' => 'customer','action' => 'edit' ,  'id' => $costumer->getId())); ?>">Edit</a>
+                <span> | </span>
+                <a id="deleteBtn" href="<?php echo $this->url('SpotOption', array('controller' => 'customer','action' => 'delete', 'id' => $costumer->getId())); ?>" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+            <td>
+                <a href="<?php echo $this->url('SpotOption', array('controller' => 'call','action' => 'new' ,  'id' => $costumer->getId())); ?>">Add New Call</a>
+            </td>
+
+
+
+            <?php } ?>
+    </table>
+</div>

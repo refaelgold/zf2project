@@ -1,0 +1,113 @@
+<!--START:ajax call-->
+<?php $this->headScript()->captureStart() ?>
+var BASE_URL = '<?php echo $this->url(); ?>';
+<?php $this->headScript()->captureEnd() ?>
+<!--END:ajax call-->
+
+
+
+
+<div class="globalWrapper">
+    <div id="formWrapper" >
+            <div id="wrapper" class="relative">
+            <?php
+            $form = $this->form;
+            $form->setAttribute('action', $this->url('SpotOption', array('controller' => 'customer', 'action' => 'edit', 'id' => $customer->getId())));
+            $form->setAttribute('autocomplete', 'on');
+            $form->prepare();
+
+            echo $this->form()->openTag($form);
+
+echo <<<title
+            <h1>Edit Existing Customer</h1>
+title;
+            ?>
+
+
+
+
+
+
+            <p class="relative">
+                <?php
+echo <<<FirstNameLabel
+          <label for="FirstName" class="uname" data-icon="u" > Your First Name : </label>
+          <i class="fa-user fa  fa-2x""></i>
+FirstNameLabel;
+                echo $this->formRow($form->get('FirstName'));
+                ?>
+            </p>
+
+            <p class="relative">
+                <?php
+                echo <<<LastNameLabel
+          <label for="LastName" class="uname" data-icon="u" > Your Last Name : </label>
+          <i class="fa-user fa  fa-2x""></i>
+LastNameLabel;
+                echo $this->formRow($form->get('LastName'));
+                ?>
+            </p>
+
+
+            <p class="relative">
+                <?php
+                echo <<<PhoneLabel
+          <label for="Phone" class="uname" data-icon="u" > Your Phone Number : </label>
+          <i class="fa-phone fa  fa-2x""></i>
+PhoneLabel;
+                echo $this->formRow($form->get('Phone'));
+                ?>
+            </p>
+
+
+
+
+            <p class="relative">
+                <?php
+                echo <<<AddressLabel
+          <label for="Address" class="uname" data-icon="u" > Your Address : </label>
+          <i class="fa-home fa  fa-2x""></i>
+AddressLabel;
+                echo $this->formRow($form->get('Address'));
+                ?>
+            </p>
+
+
+
+            <p class="relative">
+
+
+                <?php
+                echo <<<StatusLabel
+          <label for="Status" class="uname" data-icon="u" > Your Status : </label>
+                 <div class="select_join">
+
+
+StatusLabel;
+                echo $this->formRow($form->get('Status'));
+                echo <<<divCloser
+
+
+                </div>
+divCloser;
+                ?>
+
+
+            </p>
+
+
+
+            <p class="login button">
+                <?php
+                echo $this->formSubmit($form->get('submit'));
+                ?>
+            </p>
+
+            <?php
+            echo $this->form()->closeTag();
+            ?>
+
+        </div><!--wrapper-->
+    </div><!--end container-->
+</div>
+

@@ -1,0 +1,23 @@
+nav, .navbar-brand {
+  display: none !important; }
+
+.rssContainer h2 {
+  margin-left: 49px;
+  text-decoration: underline;
+  color: #00807a;
+  font-family: "Verdana"; }
+.rssContainer ul {
+  list-style-type: none;
+  width: 500px; }
+.rssContainer h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  color: #00807a; }
+.rssContainer li img {
+  float: left;
+  margin: 0 15px 0 0; }
+.rssContainer li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  text-align: left; }
+.rssContainer li {
+  padding: 10px;
+  overflow: auto; }
