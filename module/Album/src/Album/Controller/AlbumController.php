@@ -144,20 +144,6 @@ class AlbumController extends AbstractActionController
                         return array('form' => $form);
     }
 
-    /*********/
-    /*********/
-    /*********/
-
-
-
-
-
-
-
-    /*********/
-    /*********/
-    /*********/
-
 //    track section
     public function trackPerAlbumAction()
     {

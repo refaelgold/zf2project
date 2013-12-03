@@ -50,7 +50,7 @@ return array(
 
     'db' => array(
         'driver'         => 'Pdo',
-        'dsn'            => 'mysql:dbname=nirgoldm_zf2_final;host=nirgoldman.com',
+        'dsn'            => 'mysql:dbname=nirgoldm_zf2_final;host=127.0.0.1',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
