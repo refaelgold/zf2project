@@ -1,31 +1,33 @@
-<?php echo $this->message; ?>
-<hr />
+<div class="textAlignCenter">
+    <h2>
+    <?php echo $this->message; ?>
+    </h2>
+
+    <hr />
 
 
+    <hr />
+        <a class="mainBtn" id="newCustomerBtn" href="<?php echo $this->url('SpotOption', array('controller' => 'call','action' => 'new',  'id' => $customerId)); ?>">New Call</a>
+    <hr />
+
+    <h2>
+        <span>Hello , </span>
+        <span>
 
 
-<!---->
-<?php
-//        echo "<pre style=\"border: 1px solid #000;direction:ltr; height:400px; overflow: auto; margin: 0.5em;\">";
-//                var_dump($specificCustomer);
-//                echo "</pre>\n";die;
-//?>
-
-<h2>
-    <span>Hello , </span>
-    <span>
+            <?php
+            foreach($specificCustomer as $Customer)
+                echo $Customer->getFirstName();
+            echo " ";
+                echo $Customer->getLastName();
+            ?>
 
 
-        <?php
-        foreach($specificCustomer as $Customer)
-            echo $Customer->getFirstName();
-        ?>
-
-
-    </span>
-    <br/>
-    <span>this list represents all your calls : </span>
-</h2>
+        </span>
+        <br/>
+        <span>this list represents all your calls : </span>
+    </h2>
+</div>
 <table class="bordered">
     <tr>
         <th>Subject</th>

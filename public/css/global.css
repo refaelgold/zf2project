@@ -4,6 +4,9 @@
 .purple {
   color: purple; }
 
+.textAlignCenter {
+  text-align: center !important; }
+
 .green {
   color: green !important; }
 

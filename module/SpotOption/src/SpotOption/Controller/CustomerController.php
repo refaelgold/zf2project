@@ -12,6 +12,7 @@ namespace SpotOption\Controller;
 use SpotOption\Entity\Customers;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\Escaper\Escaper;
 
 
 use Zend\View\Model\JsonModel;
@@ -45,12 +46,8 @@ class CustomerController extends AbstractActionController
 
 
 
-
-
-    public function indexAction()
+      public function indexAction()
     {
-
-
 
         $em = $this->getEntityManager();
         $customerRepository = $em->getRepository('SpotOption\Entity\Customers');
@@ -77,9 +74,6 @@ class CustomerController extends AbstractActionController
 
 
 
-
-
-
     public function newAction()
     {
 
@@ -92,25 +86,32 @@ class CustomerController extends AbstractActionController
         $form = new CustomerForm();
         $form->setHydrator(new DoctrineHydrator($em,'SpotOption\Entity\Customer'));
         $form->bind($customer);
-        $form->get('submit')->setValue('Update');//override doctrine empty values!!
+        $form->get('submit')->setValue('CREATE');//override doctrine empty values!!
 
+
+        $escaper = new Escaper('utf-8');
+        $formId = $escaper->escapeHtmlAttr("customerNew");
 
         $request = $this->getRequest();
 
-        if ($request->isPost()) {
+
+
+        //$request->isPost() -->used for regular call
+        if ($request->isXmlHttpRequest()) {
             $form->setData($request->getPost());
             if ($form->isValid()) {
 
                 $em->persist($customer);
                 $em->flush();
-                return $this->redirect()->toRoute('SpotOption', array('controller'=>'customer', 'action'=>'index'));
+//                return $this->redirect()->toRoute('SpotOption', array('controller'=>'customer', 'action'=>'index'));
 
             }
 
         }
 
         return new ViewModel(array(
-            'form' => $form
+            'form' => $form,
+            'formId'=>$formId
         ));
     }
 
@@ -129,6 +130,10 @@ class CustomerController extends AbstractActionController
         $form->bind($customer);
 
         $request = $this->getRequest();
+
+
+        $escaper = new Escaper('utf-8');
+        $formId = $escaper->escapeHtmlAttr("customerEdit");
 
 
 
@@ -152,14 +157,11 @@ class CustomerController extends AbstractActionController
        return new ViewModel(array(
             'id'=>$this->params('id'),
             'customer' => $customer,
-            'form' => $form
-        ));
+            'form' => $form,
+            'formId'=>$formId
+
+       ));
     }
-
-
-
-
-
 
 
 

@@ -15,6 +15,7 @@ var currentId = '<?php echo $customer->getId(); ?>';
             $form = $this->form;
             $form->setAttribute('action', $this->url('SpotOption', array('controller' => 'customer', 'action' => 'edit', 'id' => $customer->getId())));
             $form->setAttribute('autocomplete', 'on');
+            $form->setAttribute('id',$formId);
             $form->prepare();
 
             echo $this->form()->openTag($form);

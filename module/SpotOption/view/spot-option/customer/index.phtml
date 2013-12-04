@@ -1,4 +1,6 @@
 <!--START:ajax call-->
+<div class="textAlignCenter">
+
 <?php $this->headScript()->captureStart() ?>
 var BASE_URL = '<?php echo $this->url(); ?>';
 <?php $this->headScript()->captureEnd() ?>
@@ -6,12 +8,14 @@ var BASE_URL = '<?php echo $this->url(); ?>';
 
 
 <div class="globalWrapper">
-    <?php echo $this->message; ?>
+    <h2>
+        <?php echo $this->message; ?>
+    </h2>
+    <hr />
+        <a class="mainBtn" id="newCustomerBtn" href="<?php echo $this->url('SpotOption', array('controller' => 'customer','action' => 'new')); ?>">New Customer</a>
     <hr />
 
-
-    <a id="newCustomerBtn" href="<?php echo $this->url('SpotOption', array('controller' => 'customer','action' => 'new')); ?>">New Customer</a>
-
+</div>
     <table class="bordered">
         <tr>
             <th>First Name</th>
@@ -19,8 +23,6 @@ var BASE_URL = '<?php echo $this->url(); ?>';
             <th>Phone</th>
             <th>Option</th>
             <th>CallOption</th>
-
-
         </tr>
         <?php foreach ($costumers as $costumer) { ?>
         <tr>

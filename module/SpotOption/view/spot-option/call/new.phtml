@@ -1,10 +1,22 @@
-<div id="formWrapper" >
+<!--START:ajax call-->
+<?php $this->headScript()->captureStart() ?>
+var BASE_URL = '<?php echo $this->url(); ?>';
+var customerId = '<?php echo $customerId;?>';
+var callId = '<?php echo $callId;?>';
+
+<?php $this->headScript()->captureEnd() ?>
+<!--END:ajax call-->
+
+
+<div class="globalWrapper">
+    <div id="formWrapper" >
         <div id="wrapper" class="relative">
 
         <?php
         $form = $this->form;
         $form->setAttribute('action', $this->url('SpotOption', array('controller' => 'call', 'action' => 'new')));
         $form->setAttribute('autocomplete', 'on');
+        $form->setAttribute('id',$formId);
         $form->prepare();
 
         echo $this->form()->openTag($form);
@@ -63,4 +75,4 @@ ContentLabel;
 
     </div><!--wrapper-->
 </div><!--end container-->
-
+</div>

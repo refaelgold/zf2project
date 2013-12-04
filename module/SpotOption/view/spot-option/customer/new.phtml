@@ -12,8 +12,11 @@ var BASE_URL = '<?php echo $this->url(); ?>';
 
         <?php
         $form = $this->form;
-        $form->setAttribute('action', $this->url('SpotOption', array('controller' => 'customer', 'action' => 'new')));
-        $form->setAttribute('autocomplete', 'on');
+
+            $form->setAttribute('action', $this->url('SpotOption', array('controller' => 'customer', 'action' => 'new')));
+            $form->setAttribute('autocomplete', 'on');
+            $form->setAttribute('id', $formId);
+
         $form->prepare();
 
         echo $this->form()->openTag($form);

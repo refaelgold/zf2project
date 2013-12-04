@@ -12,6 +12,8 @@ namespace SpotOption\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\Escaper\Escaper;
+
 
 
 
@@ -26,8 +28,6 @@ use SpotOption\Form\CallForm;
 
 //doctrine default modules
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
-
-
 
 
 
@@ -56,6 +56,8 @@ class CallController extends AbstractActionController
 
 
         $param = $this->getEvent()->getRouteMatch()->getParams();//this is for the ID
+        $customerId=$param['id'];
+
 
 
         $em = $this->getEntityManager();
@@ -68,18 +70,17 @@ class CallController extends AbstractActionController
         $customerRepository = $em->getRepository('SpotOption\Entity\Customers');
         $specificCustomer=$customerRepository->findBy(array('id' => $param['id']));
 
-
-
-
-        $message = $this->params()->fromQuery('message', 'welcome to first question of quiz!');
-
+        $message = $this->params()->fromQuery('message', 'CALL INTERFACE');
 
 
         return new ViewModel(array(
             'message' => $message,//this is the default message
             'calls'	=> $calls,//this is the user details(its like "SELECT *..." query
-            'specificCustomer'=>$specificCustomer
+            'specificCustomer'=>$specificCustomer,
+            'customerId'=>$customerId
         ));
+
+
 
         $this->getEntityManager()->persist($calls);
         $this->getEntityManager()->flush();
@@ -101,14 +102,22 @@ class CallController extends AbstractActionController
         $form->bind($call);
         $form->get('submit')->setValue('Update');//override doctrine empty values!!
 
-
         $request = $this->getRequest();
+
+        $escaper = new Escaper('utf-8');
+        $formId = $escaper->escapeHtmlAttr("callEdit");
+
+
+
+        $customerId=$form->get('CustomerId')->getValue();
+        $callId=$param['id'];
+
+
         if ($request->isPost()) {
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
 
-                $customerId=$form->get('CustomerId')->getValue();
 
 
 
@@ -117,11 +126,14 @@ class CallController extends AbstractActionController
                 $em->flush();
 
 
-                return $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index','id'=>$customerId));
+//                return $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index','id'=>$customerId));
             }
         }
 
         return new ViewModel(array(
+            'customerId'=>$customerId,
+            'callId'=>$callId,
+            'formId'=>$formId,
             'call' => $call,
             'form' => $form
         ));
@@ -142,14 +154,21 @@ class CallController extends AbstractActionController
 
         $em = $this->getEntityManager();
 
-        $param = $this->getEvent()->getRouteMatch()->getParams();//this is for the ID
 
 
         $call = new Calls;
         $form = new CallForm();
 
-        $customerId=$param['id'];
 
+
+        $param = $this->getEvent()->getRouteMatch()->getParams();//this is for the ID
+        $customerId=$param['id'];
+//        $customerId=$form->get('CustomerId')->getValue();
+
+
+
+        $escaper = new Escaper('utf-8');
+        $formId = $escaper->escapeHtmlAttr("callNew");
 
 
         $form->setHydrator(new DoctrineHydrator($em,'SpotOption\Entity\calls'));
@@ -165,10 +184,6 @@ class CallController extends AbstractActionController
         if ($form->isValid()) {
 
 
-            $customerId=$form->get('CustomerId')->getValue();
-
-
-
             $em->persist($call);
             $em->flush();
             return $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index','id'=>$customerId));
@@ -178,7 +193,10 @@ class CallController extends AbstractActionController
        }
 
         return new ViewModel(array(
-            'form' => $form
+            'form' => $form,
+            'formId' => $formId,
+            'customerId' => $customerId,
+//            'callId' => $callId
         ));
     }
 
@@ -187,10 +205,16 @@ class CallController extends AbstractActionController
 
     public function deleteAction()
     {
+
+
+
+        
+        
         $id = (int) $this->params('id', null);
         if (null === $id) {
             return $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index'));
         }
+
 
         $em = $this->getEntityManager();
         $call = $em->find('SpotOption\Entity\Calls', $id);
@@ -198,7 +222,7 @@ class CallController extends AbstractActionController
         $em->remove($call);
         $em->flush();
 
-        $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index'));
+        $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index','id'=>$id));
     }
 
 
