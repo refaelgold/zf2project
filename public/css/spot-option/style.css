@@ -87,7 +87,8 @@
   font-family: "Verdana"; }
 .rssContainer ul {
   list-style-type: none;
-  width: 500px; }
+  width: 500px;
+  margin: 0 auto; }
 .rssContainer h3 {
   font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
   color: #00807a; }
@@ -143,7 +144,8 @@
     box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
     border-radius: 5px;
     position: relative;
-    margin: 0 auto; }
+    margin: 0 auto;
+    /*special*/ }
     #formWrapper #customerNew pre, #formWrapper #customerEdit pre, #formWrapper #callEdit pre, #formWrapper #callNew pre {
       width: 800px !important;
       height: 300px !important; }
@@ -152,6 +154,8 @@
     #formWrapper #customerNew li, #formWrapper #customerEdit li, #formWrapper #callEdit li, #formWrapper #callNew li {
       width: 270px;
       color: red; }
+    #formWrapper #customerNew .fa-comment, #formWrapper #customerEdit .fa-comment, #formWrapper #callEdit .fa-comment, #formWrapper #callNew .fa-comment {
+      margin-left: -4px; }
     #formWrapper #customerNew .fa-user, #formWrapper #customerNew .fa-lock, #formWrapper #customerNew .fa-envelope, #formWrapper #customerNew .fa-home, #formWrapper #customerNew .fa-phone, #formWrapper #customerNew .fa-pencil, #formWrapper #customerNew .fa-comment, #formWrapper #customerEdit .fa-user, #formWrapper #customerEdit .fa-lock, #formWrapper #customerEdit .fa-envelope, #formWrapper #customerEdit .fa-home, #formWrapper #customerEdit .fa-phone, #formWrapper #customerEdit .fa-pencil, #formWrapper #customerEdit .fa-comment, #formWrapper #callEdit .fa-user, #formWrapper #callEdit .fa-lock, #formWrapper #callEdit .fa-envelope, #formWrapper #callEdit .fa-home, #formWrapper #callEdit .fa-phone, #formWrapper #callEdit .fa-pencil, #formWrapper #callEdit .fa-comment, #formWrapper #callNew .fa-user, #formWrapper #callNew .fa-lock, #formWrapper #callNew .fa-envelope, #formWrapper #callNew .fa-home, #formWrapper #callNew .fa-phone, #formWrapper #callNew .fa-pencil, #formWrapper #callNew .fa-comment {
       position: absolute;
       top: 36px;
@@ -330,7 +334,7 @@
   font-family: Corbel,Arial,Helvetica,sans-serif;
   font-size: 13px;
   position: relative;
-  top: -141px; }
+  top: -146px; }
   .wrapper404All #rocket {
     width: 275px;
     height: 375px;
@@ -371,13 +375,15 @@
   .wrapper404All .blackDummyDiv {
     width: 100%;
     padding-top: 34px;
-    height: 141px;
+    height: 200px;
     background: #1d1d1d;
     position: relative;
-    bottom: -141px; }
+    bottom: -200px; }
   .wrapper404All a {
-    custour: poiner;
-    color: #248029; }
+    cursor: pointer;
+    color: #248029;
+    font-size: 74px;
+    font-family: Arial; }
 
 /*table*/
 table {

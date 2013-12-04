@@ -50,8 +50,21 @@ class CallController extends AbstractActionController
     }
 
 
+
+
+
     public function indexAction()
     {
+
+
+
+
+        //need to be on BOOTSTRAP or on constructor  method
+        $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+        $auth=$authService->getIdentity();
+        if($auth==null){
+            return $this->redirect()->toRoute('SpotOption', array('controller'=>'main', 'action'=>'error'));
+        }
 
 
 
@@ -176,7 +189,6 @@ class CallController extends AbstractActionController
         $form->get('CustomerId')->setValue($customerId);//override doctrine empty values!!
 
 
-
         $request = $this->getRequest();
 
        if ($request->isPost()) {
@@ -196,34 +208,42 @@ class CallController extends AbstractActionController
             'form' => $form,
             'formId' => $formId,
             'customerId' => $customerId,
-//            'callId' => $callId
         ));
     }
-
 
 
 
     public function deleteAction()
     {
 
+        $param = $this->getEvent()->getRouteMatch()->getParams();//this is for the ID
 
 
-        
-        
+
+
+
+
         $id = (int) $this->params('id', null);
         if (null === $id) {
             return $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index'));
         }
 
 
+
+
+
+
+
         $em = $this->getEntityManager();
         $call = $em->find('SpotOption\Entity\Calls', $id);
+        $customerId=$call->getCustomerId();
 
         $em->remove($call);
         $em->flush();
 
-        $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index','id'=>$id));
+        $this->redirect()->toRoute('SpotOption', array('controller'=>'call', 'action'=>'index','id'=>$customerId));
     }
+
 
 
 

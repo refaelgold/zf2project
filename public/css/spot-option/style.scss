@@ -129,6 +129,7 @@
   ul {
     list-style-type: none;
     width: 500px;
+    margin:0 auto;
     }
 
   h3 {
@@ -155,12 +156,6 @@
     background: #eee;
     cursor: pointer;
     }
-
-
-
-
-
-
   }
 
 
@@ -211,12 +206,19 @@
     }
 
 
+  .fa-comment{
+    margin-left:-4px;
+    }
 
   .fa-user,.fa-lock,.fa-envelope , .fa-home , .fa-phone , .fa-pencil , .fa-comment{
     position: absolute;
     top: 36px;
     left: 7px;
     }
+
+
+
+  /*special*/
 
 
 
@@ -542,7 +544,7 @@ p.change_link{
   font-family:Corbel,Arial,Helvetica,sans-serif;
   font-size:13px;
   position: relative;
-  top: -141px;
+  top: -146px;
 
   #rocket{
     width:275px;
@@ -605,17 +607,19 @@ p.change_link{
   .blackDummyDiv{
     width: 100%;
     padding-top: 34px;
-    height: 141px;
+    height: 200px;
     background: #1d1d1d;
     position: relative;
-    bottom: -141px;
+    bottom: -200px;
     }
 
 
 
   a{
-    custour:poiner;
+    cursor: pointer;
     color: #248029;
+    font-size: 74px;
+    font-family: Arial;
     }
 
 

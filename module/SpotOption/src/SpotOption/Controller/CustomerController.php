@@ -49,6 +49,15 @@ class CustomerController extends AbstractActionController
       public function indexAction()
     {
 
+        //need to be on BOOTSTRAP or on constructor  method
+        $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+        $auth=$authService->getIdentity();
+          if($auth==null){
+              return $this->redirect()->toRoute('SpotOption', array('controller'=>'main', 'action'=>'error'));
+          }
+
+
+
         $em = $this->getEntityManager();
         $customerRepository = $em->getRepository('SpotOption\Entity\Customers');
 

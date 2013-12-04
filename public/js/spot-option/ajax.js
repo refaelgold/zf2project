@@ -80,7 +80,6 @@ $(function() {
         var values = $(this).serialize();
 
 
-        alert(customerId);
         /* Send the data using post and put the results in a div */
         $.ajax({
             dataType: 'html',

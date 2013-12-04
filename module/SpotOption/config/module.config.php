@@ -28,7 +28,7 @@ return array(
                     ),
                     'defaults' => array(
                         'controller' => 'Main',
-                        'action'     => 'route',
+                        'action'     => 'index',
                     ),
                 ),
             ),

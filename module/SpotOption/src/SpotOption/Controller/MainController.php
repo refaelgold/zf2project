@@ -15,10 +15,9 @@ class MainController extends AbstractActionController
 
 
 
-    public function globalAuth(){
 
-    }
 
+    //need to be on bootstrap or on constructor
     public function routeAction()
     {
 
