@@ -55,14 +55,14 @@ class Track implements InputFilterAwareInterface
                 ),
             ));
 
-            $inputFilter->add([
+            $inputFilter->add(array(
                 'name'     => 'track_id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
-                ),
-
-            ]);
+                     ),
+                )
+            );
 
 
 
