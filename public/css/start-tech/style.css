@@ -1,46 +1,15 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css);
 body {
   padding-top: 60px;
   padding-bottom: 40px;
-  height: 100%;
   direction: rtl; }
-
-.floatLeft {
-  float: left !important; }
-
-.paddingTop26 {
-  padding-top: 26px; }
-
-.marginTop26 {
-  margin-top: 26px; }
-
-.marginTop40 {
-  margin-top: 40px; }
-
-.textAlignCenter {
-  text-align: center !important; }
 
 .underline {
   text-decoration: underline !important; }
 
-.darkPurple {
-  color: #780088 !important; }
-
-.purple {
-  color: purple; }
-
-.background_gray_wash_wall {
-  background: url("../../img/start-tech/background/grey_wash_wall.png") repeat; }
-
-.background_title_black {
-  background: url("../../img/start-tech/background/background-title-black.png") repeat; }
-
-.background-subtle-white-feathers {
-  background: url("../../img/start-tech/background/subtle_white_feathers.png") repeat; }
-
-/******/
 .h-zigzag {
   /* Horizontal */
-  background: linear-gradient(-135deg, purple 5px, transparent 0) 0 5px, linear-gradient(135deg, purple 5px, black 0) 0 5px;
+  background: linear-gradient(-135deg, purple 5px, transparent 0) 0 5px, linear-gradient(135deg, purple 5px, white 0) 0 5px;
   background-color: purple;
   background-position: left bottom;
   background-repeat: repeat-x;
@@ -49,14 +18,14 @@ body {
   width: 100%;
   position: relative; }
 
+.purple {
+  color: purple; }
+
 .marginRight67 {
   margin-right: 67px; }
 
 .marginRight107 {
   margin-right: 107px; }
-
-.marginRight92 {
-  margin-right: 92px; }
 
 .marginAll0 {
   margin: 0px !important; }
@@ -66,9 +35,9 @@ body {
 
 #layoutTemplateWrapper {
   /*hebrew translate for Album*/ }
-  #layoutTemplateWrapper .marginTopBottom44 {
-    margin-top: 44px;
-    margin-bottom: 44px; }
+  #layoutTemplateWrapper .marginTopBottom {
+    margin-top: 10px;
+    margin-bottom: 10px; }
   #layoutTemplateWrapper div.container a.brand {
     background: url("../../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
@@ -177,13 +146,14 @@ body {
 .cn-button {
   border: none;
   background: none;
-  color: #fff;
+  color: #f06060;
   text-align: center;
   font-size: 1.8em;
   padding-bottom: 1em;
   height: 3.5em;
   width: 3.5em;
-  background-color: #860c86;
+  border: 1px solid #f06060;
+  background-color: #fff;
   position: fixed;
   left: 50%;
   margin-left: -1.75em;
@@ -195,7 +165,7 @@ body {
 .cn-button:hover,
 .cn-button:active,
 .cn-button:focus {
-  color: #000; }
+  color: #aa1010; }
 
 .csstransforms .cn-wrapper li {
   position: absolute;
@@ -274,6 +244,26 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
   -moz-transform: rotate(150deg) skew(50deg);
   transform: rotate(150deg) skew(50deg); }
 
+.csstransforms .cn-wrapper li:nth-child(odd) a {
+  background-color: #a11313;
+  background-color: #f44e4e; }
+
+.csstransforms .cn-wrapper li:nth-child(even) a {
+  background-color: #a61414;
+  background-color: #f45757; }
+
+/* active style */
+.csstransforms .cn-wrapper li.active a {
+  background-color: #b31515;
+  background-color: #f66f6f; }
+
+/* hover style */
+.csstransforms .cn-wrapper li:not(.active) a:hover,
+.csstransforms .cn-wrapper li:not(.active) a:active,
+.csstransforms .cn-wrapper li:not(.active) a:focus {
+  background-color: #b31515;
+  background-color: #f66f6f; }
+
 /* fallback */
 .no-csstransforms .cn-button {
   display: none; }
@@ -338,73 +328,4 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
   .no-csstransforms .cn-wrapper li {
     height: 3em;
     width: 3em; } }
-.csstransforms .cn-wrapper li:nth-child(odd) a {
-  background-color: #9e10ff;
-  background-color: #9b0fff; }
-
-.csstransforms .cn-wrapper li:nth-child(even) a {
-  background-color: #9556ff;
-  background-color: #9152ff; }
-
-a {
-  cursor: pointer !important; }
-
-/* active style */
-.csstransforms .cn-wrapper li.active a {
-  background-color: #b31515;
-  background-color: #f66f6f; }
-
-/* hover style */
-.csstransforms .cn-wrapper li:not(.active) a:hover,
-.csstransforms .cn-wrapper li:not(.active) a:active,
-.csstransforms .cn-wrapper li:not(.active) a:focus {
-  background-color: #b31515;
-  background-color: #f66f6f; }
-
-.csstransforms .cn-wrapper li.icon-footer-1 a:hover {
-  background-color: #3c599d; }
-
-.csstransforms .cn-wrapper li.icon-footer-2 a:hover {
-  background-color: #00adf2; }
-
-.csstransforms .cn-wrapper li.icon-footer-3 a:hover {
-  background-color: #d84734; }
-
-.csstransforms .cn-wrapper li.icon-footer-4 a:hover {
-  background-color: #fbe883; }
-
-.csstransforms .cn-wrapper li.icon-footer-5 a:hover {
-  background-color: #1ab2e8; }
-
 /********/
-footer {
-  height: 10%;
-  width: 100%;
-  display: block;
-  position: absolute; }
-
-/* ---------------- Title ---------------- */
-.neon {
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de; }
-
-/* ---------------- Slogan ---------------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-  .neon {
-    text-shadow: none; }
-
-  body {
-    overflow-x: hidden; } }
-/*iphone 5*/
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .neon {
-    text-shadow: none; }
-
-  body {
-    overflow-x: hidden; } }
-/*iphone 4 and 3*/
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .neon {
-    text-shadow: none; }
-
-  body {
-    overflow-x: hidden; } }

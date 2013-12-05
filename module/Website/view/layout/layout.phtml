@@ -34,7 +34,6 @@ if (defined('RUNNING_FROM_ROOT')) {
     </head>
     <body id="<?php echo $this->translate('English-Layout')?>">
 
-
     <div class="navbar navbar-custom navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -51,7 +50,7 @@ if (defined('RUNNING_FROM_ROOT')) {
                 <ul class="nav navbar-nav">
                     <li><a traget="_blank" href="<?php echo $this->url('Website', array('action' => 'index')); ?>">Home</a></li>
                     <li><a traget="_blank" href="<?php echo $this->url('Website', array('action' => 'about')); ?>">About</a></li>
-                    <li><a traget="_blank" href="<?php echo $this->url('Website', array('action' => 'contact')); ?>">Contact</a></li>
+<!--                    <li><a traget="_blank" href="--><?php //echo $this->url('Website', array('action' => 'contact')); ?><!--">Contact</a></li>-->
                     <li><a traget="_blank" class="bold-menu" href="<?php echo $this->url('Website', array('action' => 'zf2Projects')); ?>">ZF2 Projects</a></li>
                 </ul>
             </div><!--/.navbar-collapse -->
@@ -69,15 +68,5 @@ if (defined('RUNNING_FROM_ROOT')) {
 <!--                    <h1>this is the Right Place !!</h1>-->
             </footer>
         </div> <!-- /container -->
-<!-- end:HERE PUT THE CONTENT
+<!-- end:HERE PUT THE CONTENT-->
 
-
-
-
-
-
-
-        <?php echo $this->inlineScript() ?>
-
-    </body>
-</html>

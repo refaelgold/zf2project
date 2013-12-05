@@ -5,7 +5,7 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
   font-family: 'Roboto Slab', serif;
-  background: #f9f9f9 url("../img/website/website/bggray.jpg"); }
+  background: #f9f9f9 url("../img/website/bggray.jpg"); }
 
 .bgwhite {
   background-color: white !important; }
@@ -79,14 +79,15 @@ h1, h2 {
 .navbar-custom .navbar-brand {
   color: #000000; }
 
+.bold-menu {
+  color: green;
+  font-weight: bold;
+  font-size: 20px; }
+
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
   color: #000000;
   background-color: transparent; }
-.navbar-custom .navbar-nav > li > a.bold-menu {
-  color: green;
-  font-weight: bold;
-  font-size: 20px; }
 .navbar-custom .navbar-text {
   color: #000000; }
 .navbar-custom .navbar-nav > li:last-child > a {
@@ -352,3 +353,9 @@ h1, h2 {
 
 #cv ul {
   list-style-type: none; }
+
+.techLogo ul {
+  list-style-type: none; }
+  .techLogo ul li {
+    font-weight: bold;
+    margin-right: 10px; }

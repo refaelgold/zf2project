@@ -8,8 +8,7 @@ body{
   padding-top: 50px;
   padding-bottom: 20px;
   font-family: 'Roboto Slab', serif;
-  background: #f9f9f9 url('../img/website/website/bggray.jpg');
-
+  background: #f9f9f9 url('../img/website/bggray.jpg');
   }
 
 .bgwhite{background-color:white !important;}
@@ -422,3 +421,15 @@ font-size: 20px;
   }
 
 
+
+
+
+.techLogo{
+  ul{
+    list-style-type: none;
+    li{
+      font-weight:bold;
+      margin-right:10px;
+      }
+    }
+  }
