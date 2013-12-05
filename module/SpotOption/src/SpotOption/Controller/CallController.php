@@ -57,8 +57,6 @@ class CallController extends AbstractActionController
     {
 
 
-
-
         //need to be on BOOTSTRAP or on constructor  method
         $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
         $auth=$authService->getIdentity();
