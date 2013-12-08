@@ -11,11 +11,13 @@ return array(
         'StartTech',
         'Album',
         'SpotOption',
-//        'ZendDeveloperTools',
+        'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
-        'AuthDoctrine'
-        ),
+        'Kcs',
+        'AuthDoctrine',
+
+    ),
     'module_listener_options' => array(
         'module_paths' => array(
             './module',
@@ -31,7 +33,7 @@ return array(
                 ),
             'orm_default' => array('drivers' => array('SpotOption\Entity' => 'application_entities'))
             ))
-
-
-
     );
+
+
+

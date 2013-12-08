@@ -1,4 +1,7 @@
 <?php
+
+
+namespace Website;
 return array(
 
     'controllers' => array(
@@ -50,6 +53,26 @@ return array(
         'not_found_template'       => 'error/404',
     ),
 
+
+
+
+
+//Doctrine configuration
+//must define namespace
+    'doctrine' => array(
+        'driver' => array(
+            __NAMESPACE__ . '_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                ),
+            ),
+        ),
+    ),
 
 
 

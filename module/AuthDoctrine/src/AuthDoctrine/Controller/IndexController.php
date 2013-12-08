@@ -37,9 +37,9 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
+
+
             $em = $this->getEntityManager();
-
-
 
             //invoke the class of Users.
             $userRepository = $em->getRepository('\AuthDoctrine\Entity\User'); // '\AuthDoctrine\Entity\User' this is the definition

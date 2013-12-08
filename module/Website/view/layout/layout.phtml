@@ -25,6 +25,7 @@ if (defined('RUNNING_FROM_ROOT')) {
 
         <!-- Scripts -->
         <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/website/ajax.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery.min.js')
             ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
@@ -50,7 +51,7 @@ if (defined('RUNNING_FROM_ROOT')) {
                 <ul class="nav navbar-nav">
                     <li><a traget="_blank" href="<?php echo $this->url('Website', array('action' => 'index')); ?>">Home</a></li>
                     <li><a traget="_blank" href="<?php echo $this->url('Website', array('action' => 'about')); ?>">About</a></li>
-<!--                    <li><a traget="_blank" href="--><?php //echo $this->url('Website', array('action' => 'contact')); ?><!--">Contact</a></li>-->
+                    <li><a traget="_blank" href="<?php echo $this->url('Website', array('action' => 'contact')); ?>">Contact Me</a></li>
                     <li><a traget="_blank" class="bold-menu" href="<?php echo $this->url('Website', array('action' => 'zf2Projects')); ?>">ZF2 Projects</a></li>
                 </ul>
             </div><!--/.navbar-collapse -->

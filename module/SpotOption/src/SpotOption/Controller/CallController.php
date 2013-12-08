@@ -115,6 +115,8 @@ class CallController extends AbstractActionController
 
         $request = $this->getRequest();
 
+
+        //make it utf-8
         $escaper = new Escaper('utf-8');
         $formId = $escaper->escapeHtmlAttr("callEdit");
 

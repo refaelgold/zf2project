@@ -359,3 +359,6 @@ h1, h2 {
   .techLogo ul li {
     font-weight: bold;
     margin-right: 10px; }
+
+#contactUsAfterAjax h1.ajaxTitle {
+  margin-left: 19%; }

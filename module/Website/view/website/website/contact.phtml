@@ -1,47 +1,87 @@
-<div class="container bubble">
+<!--START:ajax call-->
+<?php $this->headScript()->captureStart() ?>
+var BASE_URL = '<?php echo $this->url(); ?>';
+<?php $this->headScript()->captureEnd() ?>
+<!--END:ajax call-->
+
+
+
+
+
+<?php
+    #TODO -put filter for validate the form --> better sending :-)-
+?>
+<div class="ajaxWrapper">
+    <div class="container bubble">
     <!--will be replaced with the aswame zend form!!!-->
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="underline">Form In Bootstrap 3</h3>
+            <h3 class="underline">I would like to know your option about this website</h3>
+            <p>feel free to comment about the Design/Code or whatever you want to say.</p>
         </div>
         <div class="col-lg-6">
-
             <div class="well">
+                <?php
+                $form = $this->form;
+                $form->setAttribute('action', $this->url('Website', array('controller' => 'Website', 'action' => 'contact')));
+                $form->setAttribute('autocomplete', 'on');
+                $form->prepare();
+
+                echo $this->form()->openTag($form);
+                echo $this->formRow($form->get('id'))
+
+                ?>
 
                 <div class="form-group row">
                     <div class="col-lg-8">
-                        <label for="first_name" class="control-label">First Name</label>
-                        <input type="text" class="form-control" id="first_name" />
+                        <label for="first_name" class="control-label">Full Name</label>
+                        <br/>
+                        <?php  echo $this->formRow($form->get('FullName'));?>
                     </div>
                 </div>
 
-                <div class="form-group row" id="last_name">
+                <div class="form-group row" >
                     <div class="col-lg-8">
-                        <label for="last_name" class="control-label">Last Name</label>
-                        <input type="text" class="form-control" />
+                        <label for="last_name" class="control-label">Phone Number</label>
+                        <br/>
+                        <?php  echo $this->formRow($form->get('PhoneNumber'));?>
                     </div>
                 </div>
 
-                <div class="form-group row" id="username">
+
+                <div class="form-group row">
                     <div class="col-lg-8">
-                        <label for="username" class="control-label">User Name</label>
-                        <input type="text" class="form-control" />
+                        <label for="password" class="control-label">Email</label>
+                        <br/>
+                        <?php  echo $this->formRow($form->get('Email'));?>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-lg-8">
+                        <label for="password" class="control-label">Message</label>
+                        <br/>
+                        <?php  echo $this->formRow($form->get('Message'));?>
                     </div>
                 </div>
 
                 <div class="form-group row" id="password">
                     <div class="col-lg-8">
-                        <label for="password" class="control-label">Password</label>
-                        <input type="password" class="form-control" />
+                            <?php  echo $this->formRow($form->get('submit'));?>
                     </div>
                 </div>
 
-                <div class="form-group row" id="password">
-                    <div class="col-lg-8">
-                        <a href="#" class="btn btn-success btn-small">Submit</a>
-                    </div>
-                </div>
+
+                <?php
+                echo $this->form()->closeTag();
+                ?>
+
+
+
+
             </div>
         </div>
     </div>
+</div>
 </div>
