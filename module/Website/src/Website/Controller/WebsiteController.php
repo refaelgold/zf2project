@@ -38,31 +38,33 @@ class WebsiteController extends AbstractActionController
 
     public function contactAction()
     {
-        $em = $this->getEntityManager();
 
 
 
                 $form = new ContactUsForm();
                 $contactUs = new WebsiteContactUs();
+                $em = $this->getEntityManager();
 
                 $form->get('submit')->setValue('Send');
                 $form->bind($contactUs);
+
                 $request = $this->getRequest();
 
 
-
-                if ($request->isPost()) {
+                   //$request->isPost() -->used for regular call
+                if ($request->isXmlHttpRequest()) {
                     // TODO fix the filters
                     //- $form->setInputFilter($authFormFilters->getInputFilter());
 
                     // Filters have been fixed
                     $form->setData($request->getPost());
-
                     if ($form->isValid()) {
+
                         //enter the info to the db
-                        $em = $this->getEntityManager();
                         $em->persist($contactUs);
                         $em->flush();
+                        return $this->redirect()->toRoute('SpotOption', array('controller'=>'customer', 'action'=>'index'));
+
                     }
                 }
                 return new ViewModel(array(
