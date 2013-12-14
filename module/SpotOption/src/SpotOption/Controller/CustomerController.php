@@ -12,9 +12,9 @@ namespace SpotOption\Controller;
 use SpotOption\Entity\Customers;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+
+
 use Zend\Escaper\Escaper;
-
-
 use Zend\View\Model\JsonModel;
 
 

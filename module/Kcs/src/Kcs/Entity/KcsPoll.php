@@ -6,12 +6,12 @@
  * Time: 5:57 PM
  */
 
-namespace Website\Entity;
+namespace Kcs\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 
 /** @ORM\Entity */
-class KcsPollOption {
+class KcsPoll {
 
 
     /**
@@ -22,29 +22,16 @@ class KcsPollOption {
     protected $id;
 
 
-
     /** @ORM\Column(type="string") */
-    protected $FullName;
-
-
-    /** @ORM\Column(type="string") */
-    protected $PhoneNumber;
-
-
-    /** @ORM\Column(type="text") */
-    protected $Message;
-
-    /** @ORM\Column(type="text") */
-    protected $Email;
+    protected $title;
 
 
 
-
-    protected  $contactUs;
+    protected  $KcsPoll;
     public function _construct(){
 
         //Initializing collection. Doctrine recognizes Collections, not arrays!
-        $this->contactUs = new ArrayCollection();
+        $this->KcsPoll = new ArrayCollection();
     }
 
     public function populate(array $data = array())
@@ -59,8 +46,6 @@ class KcsPollOption {
 
 
 
-
-
     public function getId()
     {
         return $this->id;
@@ -70,52 +55,22 @@ class KcsPollOption {
 
 
 
-    public function setMessage($value)
+    public function setTitle($value)
     {
-        $this->Message = $value;
+        $this->title = $value;
     }
 
-    public function getMessage()
+    public function getTitle()
     {
-        return $this->Message;
-    }
-
-
-
-
-
-    public function setPhoneNumber($value)
-    {
-        $this->PhoneNumber = $value;
-    }
-
-    public function getPhoneNumber()
-    {
-        return $this->PhoneNumber;
+        return $this->title;
     }
 
 
 
 
-    public function setFullName($value)
-    {
-        $this->FullName = $value;
-    }
 
-    public function getFullName()
-    {
-        return $this->FullName;
-    }
 
-    public function setEmail($value)
-    {
-        $this->Email = $value;
-    }
 
-    public function getEmail()
-    {
-        return $this->Email;
-    }
 
 
 

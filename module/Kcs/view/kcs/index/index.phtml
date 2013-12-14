@@ -1,3 +1,39 @@
-Action "index", controller "Index", module "Kcs".
-test
-test
+<!--START:ajax call-->
+<div class="textAlignCenter">
+
+    <?php $this->headScript()->captureStart() ?>
+    var BASE_URL = '<?php echo $this->url(); ?>';
+    <?php $this->headScript()->captureEnd() ?>
+    <!--END:ajax call-->
+
+
+    <div class="globalWrapper">
+        <h2>
+            <?php echo $this->message; ?>
+        </h2>
+        <hr />
+<!--        <a class="mainBtn" id="newCustomerBtn" href="--><?php //echo $this->url('SpotOption', array('controller' => 'customer','action' => 'new')); ?><!--">New Customer</a>-->
+        <hr />
+
+    </div>
+    <table class="bordered">
+        <tr>
+            <th>poll</th>
+            <th>Option</th>
+            <th>options to poll</th>
+        </tr>
+        <?php foreach ($pollHeadline as $pollTitle) { ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($pollTitle->getTitle());?></td>
+            <td>
+<!--                <a href="--><?php //echo $this->url('SpotOption', array('controller' => 'customer','action' => 'edit' ,  'id' => $costumer->getId())); ?><!--">Edit</a>-->
+                <span> | </span>
+<!--                <a id="deleteBtn" href="--><?php //echo $this->url('SpotOption', array('controller' => 'customer','action' => 'delete', 'id' => $costumer->getId())); ?><!--" onclick="return confirm('Are you sure?')">Delete</a>-->
+            </td>
+            <td>
+<!--                <a href="--><?php //echo $this->url('SpotOption', array('controller' => 'call','action' => 'new' ,  'id' => $costumer->getId())); ?><!--">Add New Call</a>-->
+            </td>
+
+            <?php } ?>
+    </table>
+</div>
