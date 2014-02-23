@@ -11,7 +11,7 @@ return array(
         'StartTech',
         'Album',
         'SpotOption',
-        'ZendDeveloperTools',
+//        'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
         'Kcs',
